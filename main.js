@@ -61,7 +61,7 @@ function notifyM() {
     if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
     } else if (Notification.permission === "granted") {
-        var notification = new Notification("F-FAStag", { body: "₹310.00 deducted from your FAStag account: MH 99 YZ 9999 for parking your vehicle in front of the XXX Hospital Gate.", icon: 'https://google.com' });
+        var notification = new Notification("F-FAStag", { body: "₹1500.00 deducted from your FAStag account: MH 99 YZ 9999 for parking your vehicle in front of the XXX Hospital Gate.", icon: 'https://google.com' });
     } else if (Notification.permission !== "denied") {
         Notification.requestPermission().then((permission) => {
             if (permission === "granted") {
