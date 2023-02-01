@@ -49,7 +49,7 @@ function notify() {
         firebase.auth().sendPasswordResetEmail(eml)
             .then(() => {
                 document.getElementById('run-api-3').src = 'https://blynk.cloud/external/api/update?token=V7x28SbjavwU0O9dz32aNMgguwi9XHNw&v5=No Car Standing'
-                alert("F-FAStag\n₹310.00 deducted from your FAStag account: " + carpark + " for parking your vehicle in front of the XXX Hospital Gate.")
+                alert("F-FAStag\n₹1500.00 deducted from your FAStag account: " + carpark + " for parking your vehicle in front of the XXX Hospital Gate.")
             })
             .catch((error) => {
                 var errorCode = error.code;
