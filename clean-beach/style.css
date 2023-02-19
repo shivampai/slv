@@ -1,0 +1,19 @@
+.control-btns button {
+    background-color: #1b1a1a;
+    color: #fff;
+    margin: none;
+    border: none;
+    font-size: 50px;
+}
+.control-btns{
+    border-radius: 100px;
+}
+.remote-btn{
+    background-color: #1b1a1a;
+    color: #fff;
+    border-radius: 10px;
+    border: none;    
+    font-size: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}

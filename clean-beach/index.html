@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SLV Smart Road</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Texturina&display=swap" rel="stylesheet">
+    <link rel="icon" href="logo.jpg">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <script src="https://kit.fontawesome.com/13b485848c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="main.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAT8wjZJkiP24c9Nd9OjhaPxG6NDYQNz6E",
+            authDomain: "shivam-pai.firebaseapp.com",
+            databaseURL: "https://shivam-pai-default-rtdb.firebaseio.com",
+            projectId: "shivam-pai",
+            storageBucket: "shivam-pai.appspot.com",
+            messagingSenderId: "607527916758",
+            appId: "1:607527916758:web:d9c6cc9a4e73106dffe577",
+            measurementId: "G-3M1DK49YMG"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+
+<body onload="load()" style="background-color: black;color: white;display:block;">
+    <center>
+        <h3>The SLV Remote</h3>
+    </center>
+    <div style="display: flex;justify-content: space-around;">
+        <button class="remote-btn" onclick="stop()"><i class="fa-solid fa-hand"></i></button>
+        <button class="remote-btn"><i class="fa-solid fa-power-off"></i></button>
+    </div>
+    <br>
+    <div style="display: flex;justify-content: center;align-items: center;">
+        <div class="control-btns" style="height: 50vw;;">
+            <button onclick="forward()"
+                style="height: 16.667vh;width: 50vh;border-top-left-radius: 100px;border-top-right-radius: 100px;"><i
+                    class="fa-solid fa-arrow-up"></i></button>
+            <span style="display: flex;border-top-left-radius: 100px;border-top-right-radius: 100px;">
+                <button onclick="left()" style="width: 25vh;height: 16.667vh;"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button onclick="right()" style="width: 25vh;height: 16.667vh;"><i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </span>
+            <button onclick="backward()"
+                style="height: 16.667vh;width: 50vh;border-bottom-left-radius: 100px;border-bottom-right-radius: 100px;"><i
+                    class="fa-solid fa-arrow-down"></i></button>
+        </div>
+    </div>
+    <br><br><br><br>
+    <br><br><br><br><br>
+    <div style="display: flex;justify-content: space-around;">
+        <button class="remote-btn" id="dustbin-btn"><i class="fa-solid fa-trash"></i></button>
+        <!-- <i class="fa-solid fa-triangle-exclamation"></i> -->
+        <button class="remote-btn"><i class="fa-solid fa-truck-ramp-box"></i></button>
+        <button class="remote-btn" id="headlight-toggle-button" onclick="headlight()"><i class="fa-regular fa-lightbulb"></i></button>
+        <!--        <button class="remote-btn"><i class="fa-solid fa-lightbulb"></i></button>-->
+    </div>
+    <audio controls hidden id="ringTone">
+        <source src="Ring Tone.mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <iframe src="" hidden id="get-iframe" frameborder="0"></iframe>
+    <iframe src="" hidden id="left-motor-iframe" frameborder="0"></iframe>
+    <iframe src="" hidden id="right-motor-iframe" frameborder="0"></iframe>
+    <iframe src="" hidden id="headlight-iframe" frameborder="0"></iframe>
+    <iframe src="" hidden id="dustbin-iframe" frameborder="0"></iframe>
+    <iframe src="" hidden id="conveyor-motor-iframe" frameborder="0"></iframe>
+
+</body>
+<script src="main.js"></script>
+</html>
