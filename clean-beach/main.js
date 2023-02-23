@@ -5,21 +5,21 @@ function load() {
     document.getElementById('conveyor-motor-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v3=0';
     setInterval(function () {
         request = new XMLHttpRequest();
-        request.open('GET', 'https://blynk.cloud/external/api/get?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v1', false);
+        request.open('GET', 'https://blynk.cloud/external/api/get?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v4', false);
         request.send(null);
         dustbinData = request.responseText;
-        
+
         request = new XMLHttpRequest();
         request.open('GET', 'https://blynk.cloud/external/api/get?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v2', false);
         request.send(null);
         headlightState = request.responseText;
-        
+
         request = new XMLHttpRequest();
-        request.open('GET', 'https://blynk.cloud/external/api/get?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v2', false);
+        request.open('GET', 'https://blynk.cloud/external/api/get?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v3', false);
         request.send(null);
-        headlightState = request.responseText;
+        conveyorBeltState = request.responseText;
     }, 100)
-} 
+}
 function ringTone() {
     document.getElementById('ringTone').play();
     rToneInterval = setInterval(function () {
@@ -49,11 +49,20 @@ function dustbin() {
 
 }
 function conveyorBelt() {
-    document.getElementById('conveyor-motor-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v3=0';
-
+    if (conveyorBeltState == 1) {
+        document.getElementById('conveyor-motor-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v3=0';
+    } else {
+        document.getElementById('conveyor-motor-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v3=1';
+    }
 }
 function headlight() {
-
+    if(headlightState == 1){
+        document.getElementById('dustbin-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v2=0';
+        document.getElementById('headlight-toggle-button').innerHTML = '<i class="fa-regular fa-lightbulb"></i>';
+    }else{
+        document.getElementById('dustbin-iframe').src = 'https://blynk.cloud/external/api/update?token=3B88Zelmjn1-UvS6j9r6SicaEyLpIpO6&v2=1';
+        document.getElementById('headlight-toggle-button').innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+    }
 }
 
 

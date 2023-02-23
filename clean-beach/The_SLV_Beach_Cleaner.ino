@@ -23,8 +23,8 @@ char auth[] = BLYNK_AUTH_TOKEN;
 
 // Your WiFi credentials.
 // Set password to "" for open networks.
-char ssid[] = "Suhaspai";
-char pass[] = "shivam@123";
+char ssid[] = "CompLAB";
+char pass[] = "@dmin@123";
 
 
 
@@ -44,6 +44,14 @@ void setup()
   //Blynk.begin(auth, ssid, pass, IPAddress(192, 168, 1, 100), 8080);
   pinMode(27,OUTPUT);
   pinMode(14,OUTPUT);
+
+  pinMode(26,OUTPUT);
+  pinMode(25,OUTPUT);
+
+  pinMode(33,INPUT);
+
+  pinMode(35,OUTPUT);
+  pinMode(34,OUTPUT);
 }
 BLYNK_WRITE(V0) {
   int motorLeft = param.asInt();
@@ -54,6 +62,7 @@ BLYNK_WRITE(V0) {
   }
 }
 BLYNK_WRITE(V1) {
+
   int motorRight = param.asInt();
   if(motorRight == 1){
    digitalWrite(14,LOW);
@@ -61,7 +70,27 @@ BLYNK_WRITE(V1) {
    digitalWrite(14,HIGH);
   }
 }
+BLYNK_WRITE(V2) {
+  int headLight = param.asInt();
+  if(headLight == 1){
+   digitalWrite(26,LOW);
+  }else{
+   digitalWrite(26,HIGH);
+  }
+}
+BLYNK_WRITE(V3) {
+  int conveyor = param.asInt();
+  if(conveyor == 1){
+   digitalWrite(25,LOW);
+  }else{
+   digitalWrite(24,HIGH);
+  }
+}
 void loop()
 {
   Blynk.run();
+
+  digitalWrite(35,HIGH);
+  digitalWrite(34,LOW);
+  Blynk.virtualWrite(V4,digitalRead(33));
 } 
