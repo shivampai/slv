@@ -83,7 +83,7 @@ BLYNK_WRITE(V3) {
   if(conveyor == 1){
    digitalWrite(25,LOW);
   }else{
-   digitalWrite(24,HIGH);
+   digitalWrite(25,HIGH);
   }
 }
 void loop()
